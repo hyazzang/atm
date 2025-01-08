@@ -13,6 +13,16 @@ while True:
         deposit_amount = int(input("입금 금액을 입력하세요.: ")) #input()=내장함수 / int()=정수형 데이터로 형변환 해주는 내장함수
         balance += deposit_amount #할당연산자 balance = balance + deposit_amount
         receipts.append(("입금", deposit_amount, balance)) #.append : 리스트에 요소 집어넣기
-        print("입금하신 금액은 {deposit_amount}원이고, 현재 잔액은 {balance}원 입니다.")
+        print(f"입금하신 금액은 {deposit_amount}원이고, 현재 잔액은 {balance}원 입니다.")
+
+    elif num == '2':
+        withdraw_amount = int(input("출금 금액을 입력하세요.: ")) #input()=내장함수 / int()=정수형 데이터로 형변환 해주는 내장함수
+        if withdraw_amount > 0: #출금 금액이 0보다 많을때
+                if withdraw_amount <= balance: #출금 금액이 잔액보다 같거나 적을경우
+                    balance -= withdraw_amount #잔액-출금액
+                    receipts.append(("출금", withdraw_amount, balance)) #.append : 리스트에 요소 집어넣기
+                    print(f"출금하신 금액은 {withdraw_amount}원이고, 현재 잔액은 {balance}원 입니다.")
+                else: #출금액이 잔액보다 같지 않거나 적지 않을경우
+                    print(f"출금 잔액이 부족합니다. 현재 잔액: {balance}")
 
 print(f"서비스를 종료합니다. 현재 잔액은 {balance}원 입니다.")
