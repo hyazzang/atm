@@ -58,4 +58,13 @@ while True:
         else:
             print("출금 금액을 올바르게 작성해주세요.")
 
-print(f"서비스를 종료합니다. 현재 잔액은 {balance}원 입니다.")
+    elif num == '3':  # 영수증 보기
+        if not receipts:  # 영수증 내역이 없을 경우
+            print("거래 내역이 없습니다.")
+        else:
+            print("===영수증===")
+            for i in receipts:
+                print(f'{i[0]}: {i[1]}원 / 잔액: {i[2]}원 입니다.')
+    else:
+        print("잘못된 입력입니다. 숫자 1, 2, 3, 4 중 하나를 입력해주세요.")
+print(f"서비스를 종료합니다. 이용해주셔서 감사합니다.")
